@@ -1,5 +1,4 @@
 {
-  "scriptFile": "__init__.py",
   "bindings": [
     {
       "authLevel": "function",
@@ -13,5 +12,7 @@
       "direction": "out",
       "name": "$return"
     }
-  ]
+  ],
+  "scriptFile": "__init__.py",
+  "entryPoint": "main"
 }
