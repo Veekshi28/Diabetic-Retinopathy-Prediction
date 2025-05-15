@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'  # Root directory
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './function_app'  # Root directory
   PYTHON_VERSION: '3.10'               # ✅ Downgraded to 3.10 (PyTorch compatibility)
 
 jobs:
