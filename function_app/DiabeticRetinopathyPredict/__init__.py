@@ -27,7 +27,7 @@ def main(req):
     global model, transform
 
     if model is None:
-        model_path = os.path.join(os.path.dirname(__file__), 'model', 'best_dr_model.pth')
+        model_path = os.path.join(os.path.dirname(__file__), 'best_dr_model.pth')
         model = build_model()
         model.load_state_dict(torch.load(model_path, map_location='cpu'))
         model.eval()
