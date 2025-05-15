@@ -7,6 +7,7 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import cv2
 import numpy as np
+import azure.functions as func  
 
 def build_model(num_classes=5):
     model = timm.create_model('resnet50', pretrained=False)
@@ -55,8 +56,13 @@ def main(req):
             "body": {"prediction": class_map[pred_idx]}
         }
 
-    except Exception as e:
-        return {
-            "status": 500,
-            "body": f"Error: {str(e)}"
+        except Exception as e:
+        error_response = {
+            "error": str(e)
         }
+        return func.HttpResponse(
+            body=json.dumps(error_response),
+            status_code=500,
+            mimetype="application/json"
+        )
+
